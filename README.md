@@ -18,16 +18,25 @@ Este repositório contém a implementação de dois microsserviços (Fazendas e 
 
 **SIMULAÇÕES**
 1. Funcionamento Integrado (Sucesso)
+   
 <img width="886" height="465" alt="image" src="https://github.com/user-attachments/assets/81e62211-b8d0-485c-accf-716ea9648af3" />
+
 Quando ambos os serviços estão online, o serviço de Fazendas consegue buscar com sucesso os dados da cultura atual.
 
+
 2. Simulação de falha na comunicação
+   
 <img width="886" height="542" alt="image" src="https://github.com/user-attachments/assets/ca22f4d2-ebdf-4eda-aa89-8c2f2cc54930" />
+
 Derrubando o serviço de Culturas, o tratamento de erro do serviço de Fazendas entra em ação, exibindo uma mensagem amigável sem quebrar a aplicação (Erro 500).
 
-3. Simulação de Timeout demorado
+
+4. Simulação de Timeout demorado
+   
 <img width="886" height="490" alt="image" src="https://github.com/user-attachments/assets/8273a0b7-3687-4fd4-a323-9c702772924d" />
+
 Adicionando um atraso de 5 segundos no serviço de Culturas, o serviço de Fazendas atinge o seu limite de espera de 2 segundos e encerra a requisição antecipadamente, caindo na mesma tratativa de erro sem travar o usuário.
+
 
 **ANÁLISE DE PROBLEMAS DA ARQUITETURA SÍNCRONA**
 "Neste tipo de implementação, quais problemas podem ocorrer?"
