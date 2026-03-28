@@ -1,0 +1,25 @@
+services:
+
+  culturas:
+    build: ./culturas
+    container_name: ms-culturas
+    ports:
+      - "8001:8000"
+    networks:
+      - ms-network
+
+  fazendas:
+    build: ./fazendas
+    container_name: ms-fazendas
+    ports:
+      - "8000:8000"
+    depends_on:
+      - culturas
+    environment:
+      - CULTURAS_URL=http://culturas:8000
+    networks:
+      - ms-network
+
+networks:
+  ms-network:
+    driver: bridge
